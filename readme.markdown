@@ -1,16 +1,15 @@
-#through
+# through-browser
+Fork of [through](http://github.com/dominictarr/through) to support the browser natively
+without requiring a bundler like `browserify` to insert a browser stub of the `stream` module.
 
-[![build status](https://secure.travis-ci.org/dominictarr/through.png)](http://travis-ci.org/dominictarr/through)
-[![testling badge](https://ci.testling.com/dominictarr/through.png)](https://ci.testling.com/dominictarr/through)
-
-Easy way to create a `Stream` that is both `readable` and `writable`. 
+Easy way to create a `Stream` that is both `readable` and `writable`.
 
 * Pass in optional `write` and `end` methods.
 * `through` takes care of pause/resume logic if you use `this.queue(data)` instead of `this.emit('data', data)`.
 * Use `this.pause()` and `this.resume()` to manage flow.
 * Check `this.paused` to see current flow state. (`write` always returns `!this.paused`).
 
-This function is the basis for most of the synchronous streams in 
+This function is the basis for most of the synchronous streams in
 [event-stream](http://github.com/dominictarr/event-stream).
 
 ``` js
@@ -32,7 +31,7 @@ var through = require('through')
 
 through(function write(data) {
     this.emit('data', data)
-    //this.pause() 
+    //this.pause()
   },
   function end () { //optional
     this.emit('end')

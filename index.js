@@ -1,4 +1,4 @@
-var Stream = require('stream')
+var Stream = require('stream-browserify')
 
 // through
 //
